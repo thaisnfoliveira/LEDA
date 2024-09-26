@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-09-20T14:07:34.934-0300</date>
+  <logger>THAIS NICOLE FREITAS DE OLIVEIRA</logger>
+  <level>FINE</level>
+  <message>File 123110142-THAIS NICOLE FREITAS DE OLIVEIRA.zip was received. It was sent by THAIS NICOLE FREITAS DE OLIVEIRA from IP 192.168.48.197 at 20-09-2024 14*07*34</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-09-22T05:39:04.801-0300</date>
+  <logger>THAIS NICOLE FREITAS DE OLIVEIRA</logger>
+  <level>FINE</level>
+  <message>File 123110142-THAIS NICOLE FREITAS DE OLIVEIRA.zip was received. It was sent by THAIS NICOLE FREITAS DE OLIVEIRA from IP 192.168.18.27 at 22-09-2024 05*39*04</message>
+</record>

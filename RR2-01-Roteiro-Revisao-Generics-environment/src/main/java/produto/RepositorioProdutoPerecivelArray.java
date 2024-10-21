@@ -42,8 +42,13 @@ public class RepositorioProdutoPerecivelArray {
 	 * @return
 	 */
 	private int procurarIndice(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		int resp = -1;
+		for(int i = 0; i<=produtos.length; i++){
+			if(produtos[i].getCodigo() == codigo){
+				resp = i;
+			}
+		}
+		return resp;
 	}
 
 	/**
@@ -53,16 +58,19 @@ public class RepositorioProdutoPerecivelArray {
 	 * @return
 	 */
 	public boolean existe(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		boolean resp = false;
+		if(this.procurarIndice(codigo) != -1){
+			resp = true;
+		}
+		return resp;
 	}
 
 	/**
 	 * Insere um novo produto (sem se preocupar com duplicatas)
 	 */
 	public void inserir(ProdutoPerecivel produto) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		this.produtos[index + 1] = produto;
+		this.index += 1;
 	}
 
 	/**
@@ -71,8 +79,13 @@ public class RepositorioProdutoPerecivelArray {
 	 * utilizado.
 	 */
 	public void atualizar(ProdutoPerecivel produto) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		int index = this.procurarIndice(produto.getCodigo());
+		if(index == -1){
+			throw new RuntimeException("Produto não cadastrado no sistema do repositório!");
+		}
+		else{
+			this.produtos[index] = produto;
+		}
 	}
 
 	/**
@@ -83,8 +96,23 @@ public class RepositorioProdutoPerecivelArray {
 	 * @param codigo
 	 */
 	public void remover(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		int i = this.procurarIndice(codigo);
+		if(i == -1){
+			throw new RuntimeException("Produto não cadastrado no sistema do repositório");
+		} else{
+			this.shiftParaEsquerda(i);
+			this.index -= 1;
+		}
+	}
+
+	private void shiftParaEsquerda(int index){
+		if(index == this.produtos.length - 1){
+			throw new IndexOutOfBoundsException();
+		}
+
+		for(int i = index; i< produtos.length; i++){
+			this.produtos[i] = this.produtos[i+1];
+		}
 	}
 
 	/**
@@ -95,7 +123,7 @@ public class RepositorioProdutoPerecivelArray {
 	 * @return
 	 */
 	public ProdutoPerecivel procurar(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		int i = this.procurarIndice(codigo);
+		return this.produtos[i];
 	}
 }

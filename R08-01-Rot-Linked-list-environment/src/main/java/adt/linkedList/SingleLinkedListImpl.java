@@ -43,8 +43,8 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 			SingleLinkedListNode<T> auxNode = this.getHead();
 			
 			//Enquanto o conteúdo do nó auxiliar é diferente do elemento que queremos encontrar E ele não é nulo (se ele for nulo, significa que a lista acabou) mudamos o valor do auxiliar para o next dele mesmo
-			while(!auxHead.isNIL() && !auxNode.data.equals(element)){
-				auxHead = auxHead.next;
+			while(!auxNode.isNIL() && !auxNode.data.equals(element)){
+				auxNode = auxNode.next;
 			}
 
 			resp = auxNode.getData();
@@ -60,18 +60,18 @@ public class SingleLinkedListImpl<T> implements LinkedList<T> {
 			//ao invés de verificar se o head é nil, temos um métodos que faz isso!
 			if(this.isEmpty()){
 				//criamos um novo nó que vai ser a cabeça da nossa linked list
-				SingleLinkedListNode<T> newHead = new SingleLinkedListNode<>(element);
+				SingleLinkedListNode<T> newHead = new SingleLinkedListNode<T>(element, this.getHead());
 				newHead.setNext(this.getHead());
 				this.setHead(newHead);
 			}else{
 				//Criamos um nó auxiliar para "percorrer" a lista até encontrar o fim - e aí inserir no final, já que esse método não recebe parametro de posição
 				SingleLinkedListNode<T> auxNode = this.getHead();
-				while(!auxHead.isNIL()){
-					auxHead = auxHead.getNext();
+				while(!auxNode.isNIL()){
+					auxNode = auxNode.getNext();
 				}
 				//Quando o nosso nó auxiliar é igual ao NIL do fim da lista, adicionamos nele o nosso elemento e criamos um novo nó vazio(NIL) para ser o next deste que criamos
-				auxHead.data = element;
-				auxHead.next = new SingleLinkedListNode<>();
+				auxNode.data = element;
+				auxNode.next = new SingleLinkedListNode<>();
 			}
 		}
 	}

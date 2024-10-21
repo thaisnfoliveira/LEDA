@@ -12,8 +12,7 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return(this.getData() == null);
 	}
 
 	@Override
@@ -30,9 +29,19 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
 	@Override
 	public void insert(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		//caso base: a lista está vazia
+		if(this.isEmpty()){
+			this.setData(element);
+			this.setNext(new RecursiveDoubleLinkedListImpl<>());
+		}
+		//caso indutivo - chamamos o mesmo método com o próximo do nó
+
+		else{
+			in
+		}
 	}
+
+	private void insertRecursive((RecursiveDoubleLinkedListImpl))
 
 	@Override
 	public void remove(T element) {

@@ -40,8 +40,7 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	private int procurarIndice(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return this.produtos.indexOf(new Produto(codigo, null, 0, null));
 	}
 
 	/**
@@ -51,16 +50,19 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	public boolean existe(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		boolean resp = false;
+		if(this.procurarIndice(codigo) != -1){
+			resp = true;
+		}
+
+		return resp;
 	}
 
 	/**
 	 * Insere um novo produto (sem se preocupar com duplicatas)
 	 */
 	public void inserir(Produto produto) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		this.produtos.add(produto);
 	}
 
 	/**
@@ -69,8 +71,12 @@ public class RepositorioProdutoArrayList {
 	 * utilizado.
 	 */
 	public void atualizar(Produto produto) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if(!this.produtos.contains(produto)){
+			throw new RuntimeException("Produto não cadastrado no repositório");
+		} else {
+			this.produtos.remove(produto);
+			this.produtos.add(produto);
+		}
 	}
 
 	/**
@@ -81,8 +87,9 @@ public class RepositorioProdutoArrayList {
 	 * @param codigo
 	 */
 	public void remover(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if(this.existe(codigo)){
+			this.produtos.remove(new Produto(codigo, null, 0, null));
+		}
 	}
 
 	/**
@@ -93,7 +100,13 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	public Produto procurar(int codigo) {
-		// TODO Implement your code here
-		throw new UnsupportedOperationException("Not implemented yet!");
+		Produto resp = null;
+		if(this.procurarIndice(codigo) != -1){
+			resp = (Produto) this.produtos.get(index);
+		} else{
+			throw new RuntimeException("Produto inexistente.");
+		}
+
+		return resp;
 	}
 }

@@ -15,7 +15,8 @@ public class RecursiveSelectionSort<T extends Comparable<T>> extends AbstractSor
         if(leftIndex >= rightIndex){
             return;
         }
-        
+
+        //tem uma abordagem parecida com o bubble sort, mas leva o menor para os primeiros índices
         int min = leftIndex;
         for(int i = leftIndex + 1; i<rightIndex + 1; i++){
             if(array[i].compareTo(array[min]) < 0){

@@ -22,7 +22,7 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends AbstractSortin
                     Util.swap(array, i, i+1);
                 }
             }
-
+        //ele leva o maior elemento para o final e depois o 'exclui', chamando o bubble sort novamente com o maior índice -1, até que toda a lista esteja ordenada (leftIndex>=rightIndex)
         this.sort(array, leftIndex, rightIndex-1);
     }
 }
